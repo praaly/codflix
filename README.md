@@ -9,3 +9,9 @@
 1. Follow the address of your repo. For example, if your repo is in ``www/codflix/``, the URL should be http://localhost/codflix or http://127.0.0.1/codflix
 
 Nothing else is required. You can now start your development
+
+## Updates
+
+### Update 23/06/2020
+- Registration is 80% complete, the user can register and log in.
+-- Using a more secure method for the password (password_hash/password_verify).
