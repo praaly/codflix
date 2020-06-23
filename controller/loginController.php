@@ -34,10 +34,14 @@ function login( $post ) {
   $user           = new User( $data );
   $userData       = $user->getUserByEmail();
 
-  $error_msg      = "Email ou mot de passe incorrect";
+  $error_msg      = "Email ou mot de passe incorrect !!";
 
+  print($userData['password']);
+  print($post['password']);
+ 
   if( $userData && sizeof( $userData ) != 0 ):
-    if( $user->getPassword() == $userData['password'] ):
+    
+    if( password_verify( $post['password'], $userData['password'])):
 
       // Set session
       $_SESSION['user_id'] = $userData['id'];

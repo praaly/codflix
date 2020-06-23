@@ -7,6 +7,7 @@ class User {
   protected $id;
   protected $email;
   protected $password;
+  protected $password_confirm;
 
   public function __construct( $user = null ) {
 
@@ -41,7 +42,8 @@ class User {
       throw new Exception( 'Vos mots de passes sont différents' );
     endif;
 
-    $this->password = $password;
+    //crée un nouveau hachage en utilisant un algorithme de hachage fort et irréversible
+    $this->password = password_hash($password, PASSWORD_BCRYPT, array("cost" => 12));
   }
 
   /***************************

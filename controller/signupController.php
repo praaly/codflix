@@ -12,9 +12,9 @@ function signupPage() {
   $user->id = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : false;
 
   if( !$user->id ):
-    require('view/auth/signupView.php');
+    require_once('view/auth/signupView.php');
   else:
-    require('view/homeView.php');
+    require_once('view/homeView.php');
   endif;
 
 }
@@ -22,3 +22,24 @@ function signupPage() {
 /***************************
 * ----- SIGNUP FUNCTION -----
 ***************************/
+
+function signup($post){
+
+  $data = new stdClass();
+  $data->email = $post['email'];
+  $data->password = $post['password'];
+  $data->password_confirm = $post['password_confirm'];
+
+  try {
+      $user = new User ($data);
+      $user->createUser();
+      header( 'location: index.php?action=login ');
+  }
+  catch (Exception $error){
+      $error_msg = $error->getMessage();
+      require_once('view/auth/signupView.php');
+      
+  }
+  
+
+}
