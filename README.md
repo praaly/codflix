@@ -12,6 +12,13 @@ Nothing else is required. You can now start your development
 
 ## Updates
 
+### Update 23/06/2020 20:49
+- The movies are now displayed on the page.
+- Once registered, the user must activate his account by email (an email is sent).
+- The contact page is created, the form too, (php to do).
+
+
+
 ### Update 23/06/2020 14:00
 - Registration is 95% complete.
 - Email unique.

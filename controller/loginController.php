@@ -25,6 +25,12 @@ function loginPage() {
 * ----- LOGIN FUNCTION -----
 ***************************/
 
+/// Ajout d'une amélioration
+/// password_verify(input, comparaison a la bdd)
+/// J'ai choisi de faire ceci car c'est plus sécurisé que le SHA256 (qui est non aléatoire)
+/// Cette fonctionalité va verifier entre ce que la personne à ecrit par rapport a la bdd
+// CF : user.php > 45
+
 function login( $post ) {
 
   $data           = new stdClass();
@@ -34,23 +40,24 @@ function login( $post ) {
   $user           = new User( $data );
   $userData       = $user->getUserByEmail();
 
-  $error_msg      = "Email ou mot de passe incorrect !!";
+  $error_msg      = "Email ou mot de passe incorrect";
 
-  print($userData['password']);
-  print($post['password']);
- 
-  if( $userData && sizeof( $userData ) != 0 ):
-    
-    if( password_verify( $post['password'], $userData['password'])):
+  if($userData['verify'] == 1){ 
+    if( $userData && sizeof( $userData ) != 0 ):    
+      if( password_verify( $post['password'], $userData['password'])):
 
-      // Set session
-      $_SESSION['user_id'] = $userData['id'];
+        // Set session
+        $_SESSION['user_id'] = $userData['id'];
 
-      header( 'location: index.php ');
+        header( 'location: index.php ');
+      endif;
     endif;
-  endif;
 
-  require('view/auth/loginView.php');
+    require('view/auth/loginView.php');
+  }
+  else{
+    echo 'non tu dois être vérifier';
+  }
 }
 
 /****************************
