@@ -38,6 +38,16 @@ class User {
 
   public function setPassword( $password, $password_confirm = false ) {
 
+    $uppercase = preg_match('@[A-Z]@', $password);
+    $lowercase = preg_match('@[a-z]@', $password);
+    $number    = preg_match('@[0-9]@', $password);
+    $specialChars = preg_match('@[^\w]@', $password);
+    
+    if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+      throw new Exception( 'Votre mot de passe doit inclure : 8 caractères, 1 Lettre majuscule, 1 Numéro, 1 caractère spécial' );
+    }else{
+      //ON PASSE AU SUIVANT
+    }
     if( $password_confirm && $password != $password_confirm ):
       throw new Exception( 'Vos mots de passes sont différents' );
     endif;
@@ -75,7 +85,7 @@ class User {
     $req  = $db->prepare( "SELECT * FROM user WHERE email = ?" );
     $req->execute( array( $this->getEmail() ) );
 
-    if( $req->rowCount() > 0 ) throw new Exception( "Email ou mot de passe incorrect" );
+    if( $req->rowCount() > 0 ) throw new Exception( "Email déjà utilisé" );
 
     // Insert new user
     $req->closeCursor();
