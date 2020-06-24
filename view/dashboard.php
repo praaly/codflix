@@ -22,6 +22,7 @@
           <ul>
             <li><a href="index.php?action=mediaPage">Médias</a></li>
             <li><a href="index.php?action=contactPage">Nous contacter</a></li>
+            <li><a href="index.php?action=historiquePage">Mon historique</a></li>
             <li><a href="index.php?action=logout">Me déconnecter</a></li>
           </ul>
         </div>

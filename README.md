@@ -11,6 +11,10 @@
 Nothing else is required. You can now start your development
 
 ## Updates
+### Update 25/06/2020 01:06
+- Bugs correction
+- Creation of the history page, currently it displays the data.
+
 
 ### Update 24/06/2020 22:33
 - Bugs correction

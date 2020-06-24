@@ -16,7 +16,7 @@ function mediaPage() {
 
 }
 
-//contenu
+//Affiche les saisons d'une serie, même systeme que la search bar, mais avec un input, recupère donné d'un value.
 function mediaContentPage() { 
 
   $mediaID = $_GET['media'];
