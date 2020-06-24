@@ -12,6 +12,10 @@ Nothing else is required. You can now start your development
 
 ## Updates
 
+### Update 24/06/2020 22:33
+- Bugs correction
+- Episode CSS reform
+- Update database, codflix.sql added.
 
 ### Update 24/06/2020 21:37
 
@@ -21,9 +25,6 @@ Nothing else is required. You can now start your development
 
 - Creation of two new tables to create series, a listSeason and a listEpisode table.
 They are both linked on Media.
-
-
-
 
 ### Update 24/06/2020 10:49
 - Fixed several bugs (error message, security message).

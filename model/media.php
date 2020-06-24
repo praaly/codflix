@@ -132,20 +132,20 @@ class Media {
   }
 
     // PERMET DE VOIR TOUS LES EPISODES
-    public static function GetEpisodeContent($mediaID, $search_1){
+  public static function GetEpisodeContent($mediaID, $search_1){
 
-    $db   = init_db();
+  $db   = init_db();
 
-    $req  = $db->prepare( "SELECT * FROM listepisode WHERE id_serie=:id AND id_season=:result" );
-    $req->bindValue(':id', $mediaID);
-    $req->bindValue(':result', $search_1);    
-    $req->execute();
+  $req  = $db->prepare( "SELECT * FROM listepisode WHERE id_serie=:id AND id_season=:result ORDER BY release_date DESC" );
+  $req->bindValue(':id', $mediaID);
+  $req->bindValue(':result', $search_1);    
+  $req->execute();
 
-    // Close databse connection
-    $db   = null;
+  // Close databse connection
+  $db   = null;
 
-    return $req->fetchAll();
+  return $req->fetchAll();
 
-  }
+}
 
 }
