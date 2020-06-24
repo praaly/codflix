@@ -1,4 +1,5 @@
 <?php ob_start(); ?>
+
 <div class="row">
     <div class="col-md-4 offset-md-8">
         <form method="get">
@@ -12,7 +13,7 @@
     </div>
 </div>
 
-<h2 class="h1-responsive font-weight-bold text-center my-4">CODFLIX : SERIES</h2>
+<h2 class="h1-responsive font-weight-bold text-center my-4">CODFLIX : SERIES </h2>
     <!--Section description-->
     <p class="text-center w-responsive mx-auto mb-5">Vous pouvez voir les derniers séries proposés par notre site internet</p>
 

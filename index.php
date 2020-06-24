@@ -44,7 +44,7 @@ if ( isset( $_GET['action'] ) ):
     break;
 
   endswitch;
-
+  
 else:
 
   $user_id = isset( $_SESSION['user_id'] ) ? $_SESSION['user_id'] : false;

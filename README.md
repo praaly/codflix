@@ -12,11 +12,20 @@ Nothing else is required. You can now start your development
 
 ## Updates
 
+
+### Update 24/06/2020 10:49
+- Fixed several bugs (error message, security message).
+- The search bar is functional, we can search for any movie with abrevations, (example: top for top gun).
+- The media list shows the summary of each film/series with 60 characters maximum. You have to click on the film to get the full page of the film/series.
+- The verification mail now sends a mail with HTML in it (table).
+
+![](https://img.praaly.fr/uploads/explorer_DYc1cm6I58.png)
+
+
 ### Update 23/06/2020 20:49
 - The movies are now displayed on the page.
 - Once registered, the user must activate his account by email (an email is sent).
 - The contact page is created, the form too, (php to do).
-
 
 
 ### Update 23/06/2020 14:00

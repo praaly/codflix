@@ -16,7 +16,7 @@ function init_db() {
 
     // LOCAL
     $host     = 'localhost';
-    $dbname   = 'user';
+    $dbname   = 'codflix';
     $charset  = 'utf8';
     $user     = 'root';
     $password = '';

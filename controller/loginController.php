@@ -56,7 +56,8 @@ function login( $post ) {
     require('view/auth/loginView.php');
   }
   else{
-    echo 'non tu dois être vérifier';
+    $error_msg      = "Vous devez verifier votre adresse email ou votre compte n'existe pas. (<a href=''>Contactez le support.</a>)";
+    require('view/auth/loginView.php');
   }
 }
 
