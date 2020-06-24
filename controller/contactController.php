@@ -4,7 +4,7 @@
 * ----- LOAD CONTACT PAGE -----
 ***************************/
 
-function contactPage() {
+function contactPage() { 
 
   require('view/contactListView.php');
 }

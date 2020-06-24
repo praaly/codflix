@@ -13,6 +13,18 @@ Nothing else is required. You can now start your development
 ## Updates
 
 
+### Update 24/06/2020 21:37
+
+-Correction of the contact form, email is sent to the requested email address.
+-The media are separated, we have a slider for movies and a slider for series.
+-In the content the series have an additional option with season and episode.
+
+- Creation of two new tables to create series, a listSeason and a listEpisode table.
+They are both linked on Media.
+
+
+
+
 ### Update 24/06/2020 10:49
 - Fixed several bugs (error message, security message).
 - The search bar is functional, we can search for any movie with abrevations, (example: top for top gun).

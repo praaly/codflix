@@ -101,15 +101,44 @@ class Media {
 
     return $req->fetchAll();
 
-  }
-  
+  }  
 
-  public static function getMedia() {
+  // UN FILM/SERIE
+  public static function GetContent($mediaID){
 
-    // Open database connection
     $db   = init_db();
 
-    $req  = $db->prepare( "SELECT * FROM media ORDER BY release_date DESC" );
+    $req  = $db->prepare( "SELECT * FROM media WHERE id=:id" );
+    $req->bindValue(':id', $mediaID);
+    $req->execute();
+
+    $db   = null;
+    return $req->fetch(); 
+
+  }
+
+  // PERMET DE VOIR TOUS LES SAISONS
+  public static function GetSeasonContent($mediaID){
+
+    $db   = init_db();
+
+    $req  = $db->prepare( "SELECT * FROM listseason WHERE id_serie=:id" );
+    $req->bindValue(':id', $mediaID);
+    $req->execute();
+
+    $db   = null;
+    return $req->fetchAll(); 
+
+  }
+
+    // PERMET DE VOIR TOUS LES EPISODES
+    public static function GetEpisodeContent($mediaID, $search_1){
+
+    $db   = init_db();
+
+    $req  = $db->prepare( "SELECT * FROM listepisode WHERE id_serie=:id AND id_season=:result" );
+    $req->bindValue(':id', $mediaID);
+    $req->bindValue(':result', $search_1);    
     $req->execute();
 
     // Close databse connection
