@@ -1,9 +1,3 @@
-<?php
-   if(isset($_POST["season"])){
-       $search_1 = $_POST['season'];
-       echo "id saison => ".$search_1;
-   }
-   ?>
 <?php ob_start();?>
 <style>
    .centered {
@@ -18,7 +12,7 @@
    }
 </style>
 <div class="card mb-3">
-<img class="card-img-top" src="public/img/home-bg.jpg" height="500px">
+<img class="card-img-top" src="public/img/home-bg.jpg" height="350px">
 <div class="centered"><?= $mediaContent['title']; ?></div>
 <div class="card-body">
    <h5 class="card-title"><?= $mediaContent['title']; ?></h5>
@@ -28,14 +22,16 @@
       <?php  if ($mediaContent['type'] == 'serie') {?> Episode 1
       <?php } if ($mediaContent['type'] == 'film') { ?> Lire le film<?php } ?>    
    </h5>
-   <iframe width="100%" height="1050px" src="<?= $mediaContent['trailer_url']; ?>"></iframe>
+   <iframe width="100%" height="550px" src="<?= $mediaContent['trailer_url']; ?>"></iframe>
    <div class="video">
+   	<hr>
       <?php  if ($mediaContent['type'] == 'serie') { ?>
       <h5 class="card-title">
          <?= $mediaContent['title']; ?>
+
          <form method="POST">
             <select name="season" onchange="this.form.submit()">
-               <option value="">CHOISI LA SAISON</option>
+               <option value="">CHOISI UNE SAISON</option>
                <?php foreach($mediaSeasonContent as $season ):?>
                <option value="<?= $season['id']?>"><?= $season['name']?></option>
                <?php endforeach; ?>
@@ -51,6 +47,7 @@
                   <h5 class="card-title"><?= $episode['name'];?></h5>
                   <p class="card-text"><?= $episode['summary']; ?></p>
                   <p class="card-text"><small class="text-muted"><?= $episode['release_date']; ?></small></p>
+                  <p class="card-text"><small class="text-muted"><?= $episode['duration']; ?></small></p>
                </div>
             </div>
             <?php endforeach; ?>       
