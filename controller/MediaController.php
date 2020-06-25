@@ -29,3 +29,7 @@ function mediaContentPage() {
   require('view/mediaContentView.php');
 
 }
+
+function addhistorique(){
+	echo 'add on history';
+}

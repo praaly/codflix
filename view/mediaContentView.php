@@ -22,7 +22,7 @@
       <?php  if ($mediaContent['type'] == 'serie') {?> Episode 1
       <?php } if ($mediaContent['type'] == 'film') { ?> Lire le film<?php } ?>    
    </h5>
-   <iframe width="100%" height="550px" src="<?= $mediaContent['trailer_url']; ?>"></iframe>
+   <iframe onclick="addhistorique()" width="100%" height="550px" src="<?= $mediaContent['trailer_url']; ?>"></iframe>
    <div class="video">
    	<hr>
       <?php  if ($mediaContent['type'] == 'serie') { ?>
