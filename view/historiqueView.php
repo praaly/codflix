@@ -7,7 +7,10 @@
       <th scope="col">Start</th>
       <th scope="col">Titre</th>
       <th scope="col">Type</th>
-      <th scope="col"></th>
+      <th scope="col"><center>
+      	<form method="POST" action="index.php?action=historiquePage">
+      		<button type="sumbit" name="deleteall"><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+      </center></th>
     </tr>
   </thead>
   <tbody>
@@ -18,13 +21,14 @@
       <td><?= $history['start_date']; ?></td>
       <td><?= strtoupper($getMedia['title']); ?></td>      
       <td><?= strtoupper($getMedia['type']); ?></td>
-
       <!--  NOTE : POSSIBILITE DE CONTOURNER SECURITE A VOIR SI MODIF -->
-      <td><center>      	
-      	            
-           <a href="?action=historiquePage&delete=<?= $history['id']; ?>"><i class="fa fa-trash-o" style="font-size:24px"></i></a>  
-         </form>
-      </center></td>
+      <td>
+      	<center>
+      	<form method="POST" action="index.php?action=historiquePage">
+      		<button type="sumbit" name="delete" value="<?= $history['id']; ?>"><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+	    </form>
+	    </center>
+	  </td>
     </tr>
     <?php endforeach; ?> 
   </tbody>
