@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 24 juin 2020 à 20:35
+-- Généré le :  jeu. 25 juin 2020 à 13:41
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -61,7 +61,23 @@ CREATE TABLE IF NOT EXISTS `history` (
   PRIMARY KEY (`id`),
   KEY `history_user_id_fk_media_id` (`user_id`),
   KEY `history_media_id_fk_media_id` (`media_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `history`
+--
+
+INSERT INTO `history` (`id`, `user_id`, `media_id`, `start_date`, `finish_date`, `watch_duration`) VALUES
+(86, 3, 4, '2020-06-16 08:00:00', NULL, 0),
+(87, 3, 4, '2020-06-16 08:00:00', NULL, 0),
+(88, 3, 4, '2020-06-16 08:00:00', NULL, 0),
+(89, 3, 4, '2020-06-16 08:00:00', NULL, 0),
+(90, 3, 4, '2020-06-16 08:00:00', NULL, 0),
+(91, 3, 4, '2020-06-16 08:00:00', NULL, 0),
+(92, 3, 4, '2020-06-16 08:00:00', NULL, 0),
+(93, 4, 3, '2020-06-15 00:00:00', NULL, 0),
+(94, 4, 3, '2020-06-15 00:00:00', NULL, 0),
+(95, 4, 3, '2020-06-15 00:00:00', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -76,6 +92,7 @@ CREATE TABLE IF NOT EXISTS `listepisode` (
   `id_season` int(11) NOT NULL,
   `name` varchar(60) NOT NULL,
   `summary` longtext NOT NULL,
+  `duration` time NOT NULL,
   `url` text NOT NULL,
   `release_date` date NOT NULL,
   PRIMARY KEY (`id`),
@@ -87,15 +104,15 @@ CREATE TABLE IF NOT EXISTS `listepisode` (
 -- Déchargement des données de la table `listepisode`
 --
 
-INSERT INTO `listepisode` (`id`, `id_serie`, `id_season`, `name`, `summary`, `url`, `release_date`) VALUES
-(5, 3, 1, 'Pilot', '97 years after a nuclear war, human kind is living in space. 100 juvenile delinquents are sent down to Earth to see if the planet is habitable.', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2015-01-20'),
-(6, 3, 1, 'Earth Skills', 'Discovering that Jasper may still be alive, Clarke, Bellamy, Finn, Wells and Murphy head out to find him. On the Ark, Abby is determined to prove Earth is habitable, and enlists a mechanic to craft an escape pod.', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2015-01-20'),
-(7, 3, 1, 'Murphy\'s Law', 'Bellamy, Clarke and Finn try to protect Charlotte when everyone learns she killed Wells. On the Ark, Abby risks getting floated in order to give Raven the chance to launch the escape pod.', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2015-01-27'),
-(8, 3, 3, 'The 48', 'While Clarke struggles to make sense of her bizarre surroundings, Lincoln risks his life to save Octavia, and Kane establishes his authority.', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2015-09-15'),
-(9, 3, 3, 'Actes et Conséquences', 'Marcus découvre qu\'Abby a permis à Bellamy et Murphy de s’enfuir et doit à présent la punir pour cela. Octavia approche Indra pour l’aider à retrouver Lincoln, mais cela se retourne contre elle. Clarke trouve un moyen de quitter le Mont Weather, mais doit alors affronter toujours plus d’horreurs.', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2016-06-28'),
-(10, 3, 3, 'Les Meilleurs Ennemis ', 'Alors que Clarke et Anya sont en fuite, poursuivies par les hommes armés du Mont Weather, le groupe mené par Bellamy arrive sur le lieu du crash d’une seconde partie de lArche et découvre une survivante. Jaha se réveille dans le désert.', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2016-06-17'),
-(11, 3, 3, 'Expérimentations', 'Bellamy et Octavia reviennent au camp, ils y retrouvent Clarke et, ensemble, ils décident de repartir à la recherche de Finn et Murphy. Quand Maya est contaminée par des radiations, Jasper accepte de servir de cobaye.', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2016-07-16'),
-(12, 3, 3, 'Le Brouillard de la Guerre', 'Clarke convainc sa mère de retourner au Mont Weather afin de détruire l’antenne qui brouille leurs communications. Marcus et Thelonious sont forcés par les Natifs à faire un choix. De son côté, Jasper fait une découverte qui change tout.', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2016-06-16');
+INSERT INTO `listepisode` (`id`, `id_serie`, `id_season`, `name`, `summary`, `duration`, `url`, `release_date`) VALUES
+(5, 3, 1, 'Pilot', '97 years after a nuclear war, human kind is living in space. 100 juvenile delinquents are sent down to Earth to see if the planet is habitable.', '01:26:32', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2015-01-20'),
+(6, 3, 1, 'Earth Skills', 'Discovering that Jasper may still be alive, Clarke, Bellamy, Finn, Wells and Murphy head out to find him. On the Ark, Abby is determined to prove Earth is habitable, and enlists a mechanic to craft an escape pod.', '00:59:00', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2015-01-20'),
+(7, 3, 1, 'Murphy\'s Law', 'Bellamy, Clarke and Finn try to protect Charlotte when everyone learns she killed Wells. On the Ark, Abby risks getting floated in order to give Raven the chance to launch the escape pod.', '00:32:00', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2015-01-27'),
+(8, 3, 3, 'The 48', 'While Clarke struggles to make sense of her bizarre surroundings, Lincoln risks his life to save Octavia, and Kane establishes his authority.', '13:15:27', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2015-09-15'),
+(9, 3, 3, 'Actes et Conséquences', 'Marcus découvre qu\'Abby a permis à Bellamy et Murphy de s’enfuir et doit à présent la punir pour cela. Octavia approche Indra pour l’aider à retrouver Lincoln, mais cela se retourne contre elle. Clarke trouve un moyen de quitter le Mont Weather, mais doit alors affronter toujours plus d’horreurs.', '02:35:00', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2016-06-28'),
+(10, 3, 3, 'Les Meilleurs Ennemis ', 'Alors que Clarke et Anya sont en fuite, poursuivies par les hommes armés du Mont Weather, le groupe mené par Bellamy arrive sur le lieu du crash d’une seconde partie de lArche et découvre une survivante. Jaha se réveille dans le désert.', '05:00:00', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2016-06-17'),
+(11, 3, 3, 'Expérimentations', 'Bellamy et Octavia reviennent au camp, ils y retrouvent Clarke et, ensemble, ils décident de repartir à la recherche de Finn et Murphy. Quand Maya est contaminée par des radiations, Jasper accepte de servir de cobaye.', '06:31:00', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2016-07-16'),
+(12, 3, 3, 'Le Brouillard de la Guerre', 'Clarke convainc sa mère de retourner au Mont Weather afin de détruire l’antenne qui brouille leurs communications. Marcus et Thelonious sont forcés par les Natifs à faire un choix. De son côté, Jasper fait une découverte qui change tout.', '03:20:00', 'http://www.youtube.com/embed/ia1Fbg96vL0', '2016-06-16');
 
 -- --------------------------------------------------------
 
@@ -169,14 +186,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `verify` int(1) NOT NULL DEFAULT 0,
   `token` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`id`, `email`, `password`, `verify`, `token`) VALUES
-(2, 'praaaly@gmail.com', '$2y$12$GfShhQbxF1Ejpr7KEF7V3uOqbJvA.qkf8BFzTW5vsTNgsGFmQ.fRq\r\n\r\n', 1, 'a41bc37769aa660f378d58a181e724106019aff615aeaba1efd102512c7b7b29bbd9f027bd8d29c89d1850d29535a736ffe6');
+(3, 'coding@gmail.com', '$2y$12$AWHu0zltLGxJVNewsrwHJ.1VD.4xws.vch./C47c/hVbyvJ8MOoIm', 1, '3b4230f59b57091c3795a2db6cc4221d2f785c99720be91b470025943f7dd935dd2a494da7918dd4c9f005a5c919fffdaeeb'),
+(4, 'praaaly@gmail.com', '$2y$12$5gV2xaWb86.UpicrNpRolOiWpoy31fxStdRPWKP6FzRZmxn8PTU/2', 1, '8113119f3a963e99739029d3ef0885e87dde0c3311049714e73e56c64774c0228c9cb8d250e051562bf238e6c9beda6b4cdb');
 
 --
 -- Contraintes pour les tables déchargées
@@ -193,14 +211,14 @@ ALTER TABLE `history`
 -- Contraintes pour la table `listepisode`
 --
 ALTER TABLE `listepisode`
-  ADD CONSTRAINT `listepisode_ibfk_1` FOREIGN KEY (`id_season`) REFERENCES `listseason` (`id`),
-  ADD CONSTRAINT `listepisode_ibfk_2` FOREIGN KEY (`id_serie`) REFERENCES `listseason` (`id_serie`);
+  ADD CONSTRAINT `listepisode_ibfk_1` FOREIGN KEY (`id_season`) REFERENCES `listseason` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `listepisode_ibfk_2` FOREIGN KEY (`id_serie`) REFERENCES `listseason` (`id_serie`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `listseason`
 --
 ALTER TABLE `listseason`
-  ADD CONSTRAINT `listSeason_ibfk_1` FOREIGN KEY (`id_serie`) REFERENCES `media` (`id`);
+  ADD CONSTRAINT `listSeason_ibfk_1` FOREIGN KEY (`id_serie`) REFERENCES `media` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `media`
