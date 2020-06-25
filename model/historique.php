@@ -38,11 +38,12 @@ public static function deleteHistorique($hID){
 	$db   = init_db();
 
 	$req  = $db->prepare( "DELETE FROM history WHERE id = :id" );
-	$req->bindValue(':id', $media_id);
+	$req->bindValue(':id', $hID);
 	$req->execute();
 
 	$db   = null;
-	return $req->fetchAll(); 
+
+	return $req->fetchAll();
 }
 
 }

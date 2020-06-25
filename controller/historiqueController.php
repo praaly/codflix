@@ -3,10 +3,13 @@
 require_once( 'model/historique.php' );
 
 function historiquePage() { 
-
+ 
   $historiqueContent = Historique::getHistorique();
-  //$historiquedelete = Historique::deleteHistorique($hID);
-
   require('view/historiqueView.php');
+
+	if (isset($_GET['delete'])){
+	  	$hID = $_GET['delete'];
+	  	Historique::deleteHistorique($hID);	
+	}  
 
 }
