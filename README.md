@@ -11,6 +11,11 @@
 Nothing else is required. You can now start your development
 
 ## Updates
+
+### Update 25/06/2020 18:45
+- Final Version
+
+
 ### Update 25/06/2020 01:06
 - Bugs correction
 - Creation of the history page, currently it displays the data.
@@ -21,6 +26,7 @@ Nothing else is required. You can now start your development
 - Episode CSS reform
 - Update database, codflix.sql added.
 
+
 ### Update 24/06/2020 21:37
 
 -Correction of the contact form, email is sent to the requested email address.
@@ -29,6 +35,7 @@ Nothing else is required. You can now start your development
 
 - Creation of two new tables to create series, a listSeason and a listEpisode table.
 They are both linked on Media.
+
 
 ### Update 24/06/2020 10:49
 - Fixed several bugs (error message, security message).
